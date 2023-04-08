@@ -1,2 +1,6 @@
 __MACOSX/
 .DS_Store
+
+# exe
+*.exe
+*.o
