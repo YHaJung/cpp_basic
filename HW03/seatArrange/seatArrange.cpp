@@ -2,13 +2,44 @@
 #include<vector>
 using namespace std;
 
-int seatArrange(int N, int Q, vector<int>& queue) {
+void nextUpdate(vector<int>& seats, int num, int max){
+    if (num <= max){
+        // cout << num << endl;
+        seats[num-1] = 1;
+        // cout << seats[num-1] << endl;
+        nextUpdate(seats, num*2, max);
+        nextUpdate(seats, num*2 + 1, max);
+    }
+}
+
+int checkPrev(vector<int>& seats, int num){
+    if ((int) seats[num / 2 - 1] == 0){
+        return num;
+    }
+    else{
+        return checkPrev(seats, (int) num / 2);
+    }
+}
+
+int seatArrange(int N, int Q, vector<int>& queue){
     //N: number of seats in GSDS
     //Q: number of students
     //queue: desired seat for each student in a row
 
     /* Your code here */
-    
+    vector<int> seats(N, 0);
+    for (int v : queue){
+        vector<int> result;
+        if (seats[v-1] == 0){
+            nextUpdate(seats, v, N);
+            cout << v << ' ';
+        }else{
+            cout << checkPrev(seats, v) << ' ';
+        }
+        // string s(result.begin(), result.end());
+    }
+    cout << endl;
+    return 0;
 }
 
 /* Do not modify below */
