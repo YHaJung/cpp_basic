@@ -4,3 +4,6 @@ __MACOSX/
 # exe
 *.exe
 *.o
+
+# vscode
+.vscode
