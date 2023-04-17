@@ -45,9 +45,13 @@ void Laptop::PrintSelf(void){
     cout << "It is a Laptop with "<< numGPU <<" GPU(s), Size=" << size <<", Price="<< price << ", Total Price="<< totalPrice << endl;
 }
 void Laptop::AddGPU(Electronics *aGPU){
-    if (numGPU < 2){
-        numGPU = numGPU + 1;
+    if (numGPU == 0){
+        numGPU = 1;
         price = size * 0.6 * 2;
+        totalPrice = price + aGPU->GetSize() * 0.6;
+    }
+    else if (numGPU == 1){
+        numGPU = 2;
         totalPrice = totalPrice + aGPU->GetSize() * 0.6;
     }
 }
