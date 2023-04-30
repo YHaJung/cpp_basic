@@ -35,8 +35,8 @@ int main()
 	cout << "Pearson - Kendall:" << endl;
 	b.Print();
 
-	/////////////////////////////
-	// Simple Linear regression
+	// /////////////////////////////
+	// // Simple Linear regression
 	Matrix Y = m.GetSubVectorbyColumn(0); // sbp
 	Matrix X = m.GetSubVectorbyColumn(1); // ldl
 
